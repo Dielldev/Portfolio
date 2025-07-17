@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.dark body {
+    background: #000000;
+    color: #ffffff;
+}
+
+#home, #projects, #skills, #about, #contact {
+    scroll-margin-top: 80px;
+}
+
+/* Minimalist section styling */
+.section-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+/* Contact section - taller padding */
+#contact {
+    margin-bottom: 0; /* Remove extra margin that causes white space */
+    padding-bottom: 6rem; /* Increased padding for more height */
+}
+
+#contact .section-container {
+    padding: 20rem 5rem 14rem 5rem; /* Increased top and bottom padding */
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dark .section-title {
+    color: #ffffff;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family: 'Inter', sans-serif;
+}
+
+.dark .section-subtitle {
+    color: #a0a0a0;
+}
+
+/* Minimalist animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.6s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Hero specific styles */
+.hero-wave {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+/* Minimalist card styling */
+.minimal-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.minimal-card:hover {
+    border-color: #000000;
+    transform: translateY(-2px);
+}
+
+.dark .minimal-card {
+    background: #111111;
+    border-color: #333333;
+}
+
+.dark .minimal-card:hover {
+    border-color: #ffffff;
+}
+
+/* Minimalist button styling */
+.minimal-button {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+    font-size: 0.9rem;
+}
+
+.minimal-button:hover {
+    background: #333333;
+    transform: translateY(-1px);
+}
+
+.dark .minimal-button {
+    background: #ffffff;
+    color: #000000;
+}
+
+.dark .minimal-button:hover {
+    background: #e0e0e0;
+}
+
+.minimal-button-outline {
+    background: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+    font-size: 0.9rem;
+}
+
+.minimal-button-outline:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.dark .minimal-button-outline {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.dark .minimal-button-outline:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Minimalist link styling */
+.minimal-link {
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.minimal-link:hover {
+    border-bottom-color: #000000;
+}
+
+.dark .minimal-link {
+    color: #ffffff;
+}
+
+.dark .minimal-link:hover {
+    border-bottom-color: #ffffff;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .section-container {
+        padding: 1rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .minimal-card {
+        padding: 1.25rem;
+    }
+}
+
