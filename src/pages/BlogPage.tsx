@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import image1 from '../assets/images/1.png';
+import image2 from '../assets/images/2.png';
+import image3 from '../assets/images/3.png';
+import image4 from '../assets/images/4.png';
+import image5 from '../assets/images/5.png';
+import image6 from '../assets/images/6.png';
+import image7 from '../assets/images/7.png';
+import image8 from '../assets/images/8.png';
 
 interface BlogPost {
     title: string;
@@ -22,7 +30,7 @@ const BlogPage: React.FC = () => {
             date: '2024-06-15',
             readTime: '5 min read',
             description: 'A comprehensive guide on building scalable web applications using React and TypeScript, covering best practices and modern development patterns.',
-            image: '/src/assets/images/1.png',
+            image: image1,
             link: '/blog/first-ctf-experience',
             tags: ['CTF', 'Cybersecurity', 'Beginner Experience']
         },
@@ -32,7 +40,7 @@ const BlogPage: React.FC = () => {
             date: '2024-09-20',
             readTime: '5 min read',
             description: 'My experience at Junction, Europe’s biggest hackathon, where our team built a job-matching application and took home 2nd place.',
-            image: '/src/assets/images/2.png',
+            image: image2,
             link: '/blog/winning-2nd-place-junction',
             tags: ['Hackathon', 'Junction', 'Teamwork', 'Tech Projects'],
         },
@@ -42,7 +50,7 @@ const BlogPage: React.FC = () => {
             date: '2024-06-10',
             readTime: '4 min read',
            description: 'Our journey to first place at JunctionX Tirana, where we competed against 500 participants and walked away with the €3000 grand prize.',
-            image: '/src/assets/images/3.png',
+            image: image3,
             link: '/blog/junctionx-tirana-2024',
             tags: ['Hackathon', 'JunctionX', 'Tirana', 'Innovation'],
         },
@@ -52,7 +60,7 @@ const BlogPage: React.FC = () => {
             date: '2025-02-25',
             readTime: '4 min read',
              description: 'A breakdown of my experience competing at ASEF in the Web Design & Computer Science category, where I built a full-stack application and earned 1st place out of 70 projects.',
-            image: '/src/assets/images/4.png',
+            image: image4,
             link: '/blog/asef-2025-web-design',
             tags: ['Web Design', 'ASEF', 'Full Stack']
         },
@@ -62,7 +70,7 @@ const BlogPage: React.FC = () => {
             date: '2024-02-14',
             readTime: '3 min read',
             description: 'My journey with VRFinity, an educational VR platform selected as the top innovation project in my city for the ICT Awards, and the experience of presenting it to industry leaders.',
-            image: '/src/assets/images/5.png',
+            image: image5,
             link: '/blog/vrfinity-ict-awards',
             tags: ['VR', 'Education', 'Innovation']
         },
@@ -72,7 +80,7 @@ const BlogPage: React.FC = () => {
             date: '2024-02-25',
             readTime: '4 min read',
             description: 'For the second year in a row, I earned 1st place in the Web Design category at ASEF, competing against 80 impressive projects from across Albania.',
-            image: '/src/assets/images/6.png',
+            image: image6,
             link: '/blog/back-to-back-wins-asef',
             tags: ['Web Design', 'ASEF', 'Full Stack']
         },
@@ -82,7 +90,7 @@ const BlogPage: React.FC = () => {
             date: '2023-02-24',
             readTime: '4 min read',
             description: 'The story of how I entered ASEF for the first time as a 10th grader, competed in the Web Design category, and took 1st place against older and more experienced students.',
-            image: '/src/assets/images/7.png',
+            image: image7,
             link: '/blog/my-first-asef',
             tags: ['Web Design', 'ASEF', '10th Grade']
         },
@@ -92,7 +100,7 @@ const BlogPage: React.FC = () => {
             date: '2021-08-24',
             readTime: '3 min read',
             description: 'The story of how I entered my first-ever coding competition, Code1 in Prishtina, and won in my category using drag-and-drop blocks — a moment that sparked my entire journey into tech.',
-            image: '/src/assets/images/8.png',
+            image: image8,
             link: '/blog/my-first-coding-competition',
             tags: ['First Competition', 'Code1', 'Coding Journey'],
         }

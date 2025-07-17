@@ -1,5 +1,13 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import image1 from '../assets/images/1.png';
+import image2 from '../assets/images/2.png';
+import image3 from '../assets/images/3.png';
+import image4 from '../assets/images/4.png';
+import image5 from '../assets/images/5.png';
+import image6 from '../assets/images/6.png';
+import image7 from '../assets/images/7.png';
+import image8 from '../assets/images/8.png';
 
 interface BlogArticleData {
     id: string;
@@ -25,7 +33,7 @@ const BlogArticle: React.FC = () => {
   date: '2024-06-08',
   readTime: '4 min read',
   description: 'A personal story about participating in my first Capture The Flag (CTF) competition in Prishtina, what I learned, and how we ended up in the Top 10.',
-  image: '/src/assets/images/1.png',
+  image: image1,
   tags: ['CTF', 'Cybersecurity', 'Beginner Experience'],
   author: 'Diell Govori',
   content: [
@@ -49,7 +57,7 @@ const BlogArticle: React.FC = () => {
             date: '2024-09-20',
             readTime: '5 min read',
             description: 'My experience at Junction, Europe’s biggest hackathon, where our team built a job-matching application and took home 2nd place.',
-            image: '/src/assets/images/2.png',
+            image: image2,
             tags: ['Hackathon', 'Junction', 'Teamwork', 'Tech Projects'],
             author: 'Jane Smith',
              content: [
@@ -73,7 +81,7 @@ const BlogArticle: React.FC = () => {
   date: '2024-05-12',
   readTime: '4 min read',
   description: 'Our journey to first place at JunctionX Tirana, where we competed against 500 participants and walked away with the €3000 grand prize.',
-  image: '/src/assets/images/3.png',
+  image: image3,
   tags: ['Hackathon', 'JunctionX', 'Tirana', 'Innovation'],
   author: 'Diell Govori',
   content: [
@@ -98,7 +106,7 @@ const BlogArticle: React.FC = () => {
   date: '2024-02-20',
   readTime: '4 min read',
   description: 'A breakdown of my experience competing at ASEF in the Web Design & Computer Science category, where I built a full-stack application and earned 1st place out of 70 projects.',
-  image: '/src/assets/images/4.png',
+  image: image4,
   tags: ['Web Design', 'Full Stack', 'ASEF', 'Competition'],
   author: 'Diell Govori',
   content: [
@@ -124,7 +132,7 @@ const BlogArticle: React.FC = () => {
   date: '2024-03-10',
   readTime: '3 min read',
   description: 'My journey with VRFinity, an educational VR platform selected as the top innovation project in my city for the ICT Awards, and the experience of presenting it to industry leaders.',
-  image: '/src/assets/images/5.png',
+  image: image5,
   tags: ['ICT Awards', 'Innovation', 'VR', 'Tech Projects'],
   author: 'Diell Govori',
   content: [
@@ -149,7 +157,7 @@ const BlogArticle: React.FC = () => {
   date: '2024-02-21',
   readTime: '4 min read',
   description: 'For the second year in a row, I earned 1st place in the Web Design category at ASEF, competing against 80 impressive projects from across Albania.',
-  image: '/src/assets/images/6.png',
+  image: image6,
   tags: ['Web Design', 'Full Stack', 'ASEF', 'Competition'],
   author: 'Diell Govori',
   content: [
@@ -173,7 +181,7 @@ const BlogArticle: React.FC = () => {
             date: '2023-02-24',
             readTime: '4 min read',
             description: 'The story of how I entered ASEF for the first time as a 10th grader, competed in the Web Design category, and took 1st place against older and more experienced students.',
-            image: '/src/assets/images/7.png',
+            image: image7,
             tags: ['Web Design', 'ASEF', '10th Grade'],
             author: 'Diell Govori',
             content: [
@@ -197,7 +205,7 @@ const BlogArticle: React.FC = () => {
   date: '2022-03-05',
   readTime: '3 min read',
   description: 'The story of how I entered my first-ever coding competition, Code1 in Prishtina, and won in my category using drag-and-drop blocks — a moment that sparked my entire journey into tech.',
-  image: '/src/assets/images/code1-prishtina.png',
+  image: image8,
   tags: ['First Competition', 'Code1', 'Coding Journey'],
   author: 'Diell Govori',
   content: [

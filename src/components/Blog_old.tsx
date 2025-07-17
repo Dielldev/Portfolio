@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import image1 from '../assets/images/1.png';
+import image2 from '../assets/images/2.png';
 
 interface BlogPost {
     title: string;
@@ -20,7 +22,7 @@ const Blog: React.FC = () => {
             date: '2025-04-15',
             readTime: '4 min read',
             description: 'A personal story about participating in my first Capture The Flag (CTF) competition in Prishtina, what I learned, and how we ended up in the Top 10.',
-            image: '/src/assets/images/1.png',
+            image: image1,
             link: '/blog/first-ctf-experience',
             tags: ['CTF', 'Cybersecurity', 'Beginner Experience']
         },
@@ -30,7 +32,7 @@ const Blog: React.FC = () => {
             date: '2024-09-20',
             readTime: '5 min read',
             description: 'My experience at Junction, Europe’s biggest hackathon, where our team built a job-matching application and took home 2nd place.',
-            image: '/src/assets/images/2.png',
+            image: image2,
             link: '/blog/winning-2nd-place-junction',
             tags: ['Hackathon', 'Junction', 'Teamwork', 'Tech Projects'],
         }
