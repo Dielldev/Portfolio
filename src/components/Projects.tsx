@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import project1Image from '../assets/images/project1.png';
 import project2Image from '../assets/images/project2.png';
 import project4Image from '../assets/images/project4.png';
@@ -17,6 +19,43 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
+    const { ref, isInView } = useScrollAnimation(0.2);
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        }
+    };
+
     const projects: Project[] = [
         {
             company: "MedAi",
@@ -72,91 +111,118 @@ const Projects: React.FC = () => {
 
     return (
         <section className="section-container bg-white dark:bg-black transition-colors duration-300" id="projects">
-            <h2 className="section-title">Projects</h2>
-            <p className="section-subtitle">
-                Recent work showcasing my development capabilities
-            </p>
+            <motion.div 
+                ref={ref}
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
+                <motion.div 
+                    className="text-center mb-12"
+                    variants={itemVariants}
+                >
+                    <div className="inline-block px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium mb-6">
+                        My Projects
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
+                        Check out my latest work
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
+                    </p>
+                </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                {projects.map((project, index) => (
-                    <div key={index} className="minimal-card group">
-                        {/* Project Image */}
-                        <div className="mb-2 overflow-hidden rounded-lg">
-                            <img 
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-28 object-cover transition-all duration-500 group-hover:scale-105"
-                            />
-                        </div>
-
-                        {/* Project Info */}
-                        <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                                <span className="text-xs font-medium text-gray-600 dark:text-gray-400 transition-colors duration-300">{project.company}</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-500 transition-colors duration-300">{project.year}</span>
+                <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto"
+                    variants={containerVariants}
+                >
+                    {projects.map((project, index) => (
+                        <motion.div 
+                            key={index} 
+                            className="minimal-card group"
+                            variants={cardVariants}
+                        >
+                            {/* Project Image */}
+                            <div className="mb-2 overflow-hidden rounded-lg">
+                                <img 
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-28 object-cover transition-all duration-500 group-hover:scale-105"
+                                />
                             </div>
 
-                            <h3 className="text-base font-medium text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
-                                {project.title}
-                            </h3>
+                            {/* Project Info */}
+                            <div className="space-y-2">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-xs font-medium text-gray-600 dark:text-gray-400 transition-colors duration-300">{project.company}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-500 transition-colors duration-300">{project.year}</span>
+                                </div>
 
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">
-                                {project.description}
-                            </p>
+                                <h3 className="text-base font-medium text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                                    {project.title}
+                                </h3>
 
-                            {/* Tech Stack */}
-                            <div className="flex flex-wrap gap-1">
-                                {project.tags.slice(0, 3).map((tag, i) => (
-                                    <span 
-                                        key={i}
-                                        className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded transition-colors duration-300"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                                {project.tags.length > 3 && (
-                                    <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded transition-colors duration-300">
-                                        +{project.tags.length - 3}
-                                    </span>
-                                )}
-                            </div>
+                                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">
+                                    {project.description}
+                                </p>
 
-                            {/* Action Buttons */}
-                            <div className="flex gap-2 pt-2">
-                                <a 
-                                    href={project.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-1 text-center minimal-button text-xs"
-                                >
-                                    View Live
-                                </a>
-                                {project.githubUrl !== "#" && (
+                                {/* Tech Stack */}
+                                <div className="flex flex-wrap gap-1">
+                                    {project.tags.slice(0, 3).map((tag, i) => (
+                                        <span 
+                                            key={i}
+                                            className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded transition-colors duration-300"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                    {project.tags.length > 3 && (
+                                        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded transition-colors duration-300">
+                                            +{project.tags.length - 3}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex gap-2 pt-2">
                                     <a 
-                                        href={project.githubUrl}
+                                        href={project.liveUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="minimal-button-outline text-xs px-3"
+                                        className="flex-1 text-center minimal-button text-xs"
                                     >
-                                        Code
+                                        View Live
                                     </a>
-                                )}
+                                    {project.githubUrl !== "#" && (
+                                        <a 
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="minimal-button-outline text-xs px-3"
+                                        >
+                                            Code
+                                        </a>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
-            <div className="text-center mt-8">
-                <a 
-                    href="https://github.com/Dielldev" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="minimal-link text-base"
+                <motion.div 
+                    className="text-center mt-8"
+                    variants={itemVariants}
                 >
-                    View all projects on GitHub →
-                </a>
-            </div>
+                    <a 
+                        href="https://github.com/Dielldev" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="minimal-link text-base"
+                    >
+                        View all projects on GitHub →
+                    </a>
+                </motion.div>
+            </motion.div>
         </section>
     );
 };
