@@ -21,7 +21,7 @@ const HeroMinimal: React.FC = () => {
 
         {/* Title */}
         <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 font-light tracking-wide uppercase transition-colors duration-300">
-          AI Engineer & Developer
+          Data Engineer & Developer
         </p>
 
         {/* Location */}

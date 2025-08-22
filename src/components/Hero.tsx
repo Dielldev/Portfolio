@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto transition-colors duration-300">
-              AI Engineer & Full-Stack Developer focused on building intelligent, scalable solutions
+              Data Engineer specializing in AI and Machine Learning
             </p>
 
             {/* Simple CTA */}
