@@ -62,7 +62,7 @@ const About: React.FC = () => {
                         </p>
                         
                         <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                            I specialize in <span className="font-medium text-black dark:text-white">Data Science and Data Engineering</span>, creating clean and efficient solutions. 
+                            I specialize in <span className="font-medium text-black dark:text-white">Data Engineering</span>, creating clean and efficient solutions. 
                             Recently, I've been working with <span className="font-medium text-black dark:text-white">AI agents</span> and exploring cutting-edge machine learning technologies.
                         </p>
                     </div>
