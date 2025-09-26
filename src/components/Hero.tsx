@@ -65,11 +65,11 @@ const Hero: React.FC = () => {
             variants={itemVariants}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white leading-tight tracking-tight transition-colors duration-300">
-              Hi, I'm Diell
+              Hi, I'm Diell 
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto transition-colors duration-300">
-              Data Engineer specializing in AI and Machine Learning
+              Software Engineer solving complex problems with code.
             </p>
 
             {/* Simple CTA */}
