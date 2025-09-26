@@ -93,7 +93,7 @@ const Skills: React.FC = () => {
                     {technologies.map((tech, index) => (
                         <motion.div
                             key={index}
-                            className="text-center py-2 px-3 bg-gray-50 dark:bg-white rounded-md text-gray-700 dark:text-black hover:bg-gray-100 dark:hover:bg-gray-100 transition-colors duration-200 cursor-pointer text-sm"
+                            className="text-center py-2 px-3 bg-gray-50 dark:bg-white rounded-md text-gray-700 dark:text-black hover:bg-gray-100 dark:hover:bg-gray-100 transition-colors duration-200 text-sm"
                             variants={skillVariants}
                         >
                             {tech}

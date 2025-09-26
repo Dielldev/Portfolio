@@ -47,7 +47,7 @@ const About: React.FC = () => {
                         Diell Govori
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        A developer creating intelligent solutions and modern web applications that make a difference.
+                        A software engineer who designs, develops, and maintains scalable applications and systems that solve real-world problems.
                     </p>
                 </motion.div>
                 
@@ -56,14 +56,10 @@ const About: React.FC = () => {
                     variants={itemVariants}
                 >
                     <div className="text-center">
-                        <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 transition-colors duration-300">
-                            I'm a developer <span className="font-medium text-black dark:text-white">from Kosovo</span> who started coding at 15 years old. 
-                            I love building modern web applications and intelligent systems that solve real problems.
-                        </p>
+                       
                         
                         <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                            I specialize in <span className="font-medium text-black dark:text-white">Data Engineering</span>, creating clean and efficient solutions. 
-                            Recently, I've been working with <span className="font-medium text-black dark:text-white">AI agents</span> and exploring cutting-edge machine learning technologies.
+                           I thrive in competitive and fast paced environments, turning challenging and mind puzzling problems into modern digital solutions through minimalist design principles and clean code architecture
                         </p>
                     </div>
 
