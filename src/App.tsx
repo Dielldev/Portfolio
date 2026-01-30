@@ -6,6 +6,7 @@ import HorizontalNav from './components/HorizontalNav';
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import About from './components/About'
+import WorkExperience from './components/WorkExperience'
 import Blog from './components/Blog_old'
 import Contact from './components/Contact'
 import BlogPage from './pages/BlogPage'
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <Hero />
       <About />
+      <WorkExperience />
       <Skills />
       <Projects />
       <Blog />
