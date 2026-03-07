@@ -47,7 +47,7 @@ const About: React.FC = () => {
                         Diell Govori
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        A software engineer who designs, develops, and maintains scalable applications and systems that solve real-world problems.
+                        An AI Engineer who builds and deploys AI models into real-world systems, leverages LLMs to solve complex problems, and designs intelligent agent workflows that automate and scale decision-making
                     </p>
                 </motion.div>
                 

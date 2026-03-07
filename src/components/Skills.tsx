@@ -41,26 +41,26 @@ const Skills: React.FC = () => {
     };
 
     const technologies = [
-        "React",
-        "JavaScript",
-        "TypeScript",
-        "Tailwind CSS",
-        "Next.js",
-        "Node.js",
         "Python",
-        "Java",
-        "Flask",
-        "Django",
-        "SciPy",
         "PyTorch",
+        "TensorFlow",
+        "Hugging Face",
+        "LangChain",
+        "OpenAI API",
+        "FastAPI",
+        "Flask",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "RAG",
+        "MLflow",
         "SQL",
         "Git",
         "Docker",
         "AWS",
-        "REST APIs",
-        "VS Code",
-        "Figma",
-        "n8n"
+        "Jupyter",
+        "n8n",
+        "CUDA"
     ];
 
     return (
@@ -82,7 +82,7 @@ const Skills: React.FC = () => {
                         Technologies I work with
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        I specialize in modern web development technologies and tools, from frontend frameworks to backend systems and cloud services.
+                        I specialize in AI and machine learning technologies, from model training and fine-tuning to building intelligent pipelines, APIs, and deploying models at scale.
                     </p>
                 </motion.div>
 
