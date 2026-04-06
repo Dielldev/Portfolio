@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import image1 from '../assets/images/1.png';
 import image2 from '../assets/images/2.png';
@@ -13,6 +13,9 @@ import presenting from '../assets/images/presenting.jpg';
 import presenting1 from '../assets/images/presenting1.jpg';
 import presenting2 from '../assets/images/presenting2.jpg';
 import team1 from '../assets/images/team1.jpg';
+import mainpic from '../assets/images/main_pic.png';
+import gallery1 from '../assets/images/gallery1.png';
+import gallery2 from '../assets/images/gallery2.png';
 
 interface BlogArticleData {
     id: string;
@@ -30,6 +33,7 @@ interface BlogArticleData {
 
 const BlogArticle: React.FC = () => {
     const { articleId } = useParams<{ articleId: string }>();
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const articles: { [key: string]: BlogArticleData } = {
         'prishtina-healthcare-hackathon-1st-place': {
@@ -57,6 +61,29 @@ const BlogArticle: React.FC = () => {
                 presenting,
                 presenting1,
                 presenting2
+            ]
+        },
+        'cyber-security-challenge-kosova-albania-finals': {
+            id: 'cyber-security-challenge-kosova-albania-finals',
+            title: 'Placing 5th at the Cyber Security Challenge Kosova & Albania Finals',
+            category: 'Cybersecurity',
+            date: '2026-04-06',
+            readTime: '3 min read',
+            description: 'Proud to share that me and Ylber Govori placed 5th at the Cyber Security Challenge Kosova & Albania finals in Tirana.',
+            image: mainpic,
+            tags: ['Cybersecurity', 'AI', 'Security', 'Finals', 'ML'],
+            author: 'Diell Govori',
+            content: [
+                'Proud to share that me and Ylber Govori placed 5th at the Cyber Security Challenge Kosova & Albania finals in Tirana!',
+                'Coming from an AI Engineering background, this was a great opportunity to apply my experience with AI-generated code vulnerabilities and security considerations in ML systems.',
+                'We qualified 3rd in the preliminary rounds before competing against top cybersecurity talent in the finals.',
+                'This challenge reminded me that building secure AI is not optional, it is a core responsibility as these technologies scale across industries.',
+                'The challenge was also a great reminder that technical skills are more transferable than we often think.'
+            ],
+            galleryImages: [
+                mainpic,
+                gallery1,
+                gallery2
             ]
         },
         'first-ctf-experience': {
@@ -300,6 +327,27 @@ const BlogArticle: React.FC = () => {
         }
     };
 
+    const openImage = (imageSrc: string) => {
+        setSelectedImage(imageSrc);
+    };
+
+    const closeImage = () => {
+        setSelectedImage(null);
+    };
+
+    useEffect(() => {
+        if (!selectedImage) {
+            return;
+        }
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [selectedImage]);
+
     return (
         <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
             <div className="section-container">
@@ -320,7 +368,8 @@ const BlogArticle: React.FC = () => {
                         <img
                             src={article.image}
                             alt={article.title}
-                            className="w-full h-64 md:h-80 object-cover"
+                            className="w-full h-64 md:h-80 object-cover cursor-zoom-in"
+                            onClick={() => openImage(article.image)}
                         />
                     </div>
 
@@ -371,14 +420,42 @@ const BlogArticle: React.FC = () => {
                                 <h2 className="text-2xl font-bold text-black dark:text-white mb-4">Photo Gallery</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                     {article.galleryImages.map((imageSrc, index) => (
-                                        <img
+                                        <button
                                             key={index}
-                                            src={imageSrc}
-                                            alt={`${article.title} photo ${index + 1}`}
-                                            className="w-full h-48 object-cover rounded-lg border border-gray-200 dark:border-gray-800"
-                                            loading="lazy"
-                                        />
+                                            type="button"
+                                            onClick={() => openImage(imageSrc)}
+                                            className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800"
+                                        >
+                                            <img
+                                                src={imageSrc}
+                                                alt={`${article.title} photo ${index + 1}`}
+                                                className="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                                                loading="lazy"
+                                            />
+                                        </button>
                                     ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {selectedImage && (
+                            <div
+                                className="fixed inset-0 z-50 flex items-start justify-center px-4 py-6 pointer-events-none"
+                            >
+                                <button
+                                    type="button"
+                                    onClick={closeImage}
+                                    className="pointer-events-auto absolute right-4 top-4 h-9 w-9 rounded-full border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-gray-200 dark:hover:bg-gray-900"
+                                    aria-label="Close image viewer"
+                                >
+                                    X
+                                </button>
+                                <div className="pointer-events-auto mt-12 flex max-h-[88vh] max-w-[92vw] items-center justify-center">
+                                    <img
+                                        src={selectedImage}
+                                        alt="Expanded gallery view"
+                                        className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain shadow-2xl"
+                                    />
                                 </div>
                             </div>
                         )}

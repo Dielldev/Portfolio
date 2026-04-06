@@ -9,6 +9,8 @@ import image6 from '../assets/images/6.png';
 import image7 from '../assets/images/7.png';
 import image8 from '../assets/images/8.png';
 import mePr from '../assets/images/me_pr.jpg';
+import team1 from '../assets/images/team1.jpg';
+import mainpic from '../assets/images/main_pic.png';
 
 interface BlogPost {
     title: string;
@@ -34,6 +36,16 @@ const BlogPage: React.FC = () => {
             image: mePr,
             link: '/blog/prishtina-healthcare-hackathon-1st-place',
             tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching']
+        },
+        {
+            title: 'Placing 5th at the Cyber Security Challenge Kosova & Albania Finals',
+            category: 'Cybersecurity',
+            date: '2026-04-06',
+            readTime: '3 min read',
+            description: 'A look at how me and Ylber Govori placed 5th in the finals in Tirana, applying AI engineering experience to security challenges in ML systems.',
+            image: mainpic,
+            link: '/blog/cyber-security-challenge-kosova-albania-finals',
+            tags: ['Cybersecurity', 'AI', 'Security', 'Finals']
         },
         {
             title: 'My First CTF Experience – Top 10 in Prishtina!',

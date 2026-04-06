@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import image1 from '../assets/images/1.png';
 import image2 from '../assets/images/2.png';
+import mePr from '../assets/images/me_pr.jpg';
 
 interface BlogPost {
     title: string;
@@ -56,14 +56,14 @@ const Blog: React.FC = () => {
 
     const blogPosts: BlogPost[] = [
         {
-            title: 'My First CTF Experience – Top 10 in Prishtina!',
-            category: 'Cybersecurity',
-            date: '2025-04-15',
-            readTime: '4 min read',
-            description: 'A personal story about participating in my first Capture The Flag (CTF) competition in Prishtina, what I learned, and how we ended up in the Top 10.',
-            image: image1,
-            link: '/blog/first-ctf-experience',
-            tags: ['CTF', 'Cybersecurity', 'Beginner Experience']
+            title: 'We Won 1st Place at the Pristina Healthcare Hackathon',
+            category: 'Hackathons',
+            date: '2026-04-06',
+            readTime: '3 min read',
+            description: 'Our team won 1st place at the Pristina Healthcare Hackathon after building a Virtual Reality Exhibition on Non-Communicable Diseases.',
+            image: mePr,
+            link: '/blog/prishtina-healthcare-hackathon-1st-place',
+            tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching']
         },
         {
             title: 'Winning 2nd Place at Europe’s Biggest Hackathon – Junction in Helsinki',
