@@ -9,7 +9,6 @@ import image6 from '../assets/images/6.png';
 import image7 from '../assets/images/7.png';
 import image8 from '../assets/images/8.png';
 import mePr from '../assets/images/me_pr.jpg';
-import team1 from '../assets/images/team1.jpg';
 import mainpic from '../assets/images/main_pic.png';
 
 interface BlogPost {
