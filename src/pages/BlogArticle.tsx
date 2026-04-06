@@ -441,17 +441,21 @@ const BlogArticle: React.FC = () => {
 
                         {selectedImage && (
                             <div
-                                className="fixed inset-0 z-50 flex items-start justify-center px-4 py-6 pointer-events-none"
+                                className="fixed inset-0 z-50 flex items-start justify-center  px-4 py-6"
+                                onClick={closeImage}
                             >
                                 <button
                                     type="button"
                                     onClick={closeImage}
-                                    className="pointer-events-auto absolute right-4 top-4 h-9 w-9 rounded-full border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-gray-200 dark:hover:bg-gray-900"
+                                    className="absolute right-4 top-4 h-9 w-9 rounded-full border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-gray-200 dark:hover:bg-gray-900"
                                     aria-label="Close image viewer"
                                 >
                                     X
                                 </button>
-                                <div className="pointer-events-auto mt-12 flex max-h-[88vh] max-w-[92vw] items-center justify-center">
+                                <div
+                                    className="mt-12 flex max-h-[88vh] max-w-[92vw] items-center justify-center"
+                                    onClick={(event) => event.stopPropagation()}
+                                >
                                     <img
                                         src={selectedImage}
                                         alt="Expanded gallery view"
