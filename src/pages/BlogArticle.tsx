@@ -16,6 +16,7 @@ import team1 from '../assets/images/team1.jpg';
 import mainpic from '../assets/images/main_pic.png';
 import gallery1 from '../assets/images/gallery1.png';
 import gallery2 from '../assets/images/gallery2.png';
+import win from '../assets/images/win.jpg';
 
 interface BlogArticleData {
     id: string;
@@ -56,7 +57,7 @@ const BlogArticle: React.FC = () => {
                 'Thank you Pristina.Innovate.Healthcare and all organizers for putting together such a great experience. Already looking forward to the next one.'
             ],
             galleryImages: [
-                mePr,
+                win,
                 team1,
                 presenting,
                 presenting1,
