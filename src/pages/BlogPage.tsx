@@ -8,6 +8,7 @@ import image5 from '../assets/images/5.png';
 import image6 from '../assets/images/6.png';
 import image7 from '../assets/images/7.png';
 import image8 from '../assets/images/8.png';
+import mePr from '../assets/images/me_pr.jpg';
 
 interface BlogPost {
     title: string;
@@ -24,6 +25,16 @@ const BlogPage: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
     const blogPosts: BlogPost[] = [
+        {
+            title: 'We Won 1st Place at the Pristina Healthcare Hackathon',
+            category: 'Hackathons',
+            date: '2026-04-06',
+            readTime: '3 min read',
+            description: 'Our team won 1st place at the Pristina Healthcare Hackathon after building a VR exhibition on non-communicable diseases for the IHS Challenge.',
+            image: mePr,
+            link: '/blog/prishtina-healthcare-hackathon-1st-place',
+            tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching']
+        },
         {
             title: 'My First CTF Experience – Top 10 in Prishtina!',
             category: 'Cybersecurity',

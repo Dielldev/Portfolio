@@ -8,6 +8,11 @@ import image5 from '../assets/images/5.png';
 import image6 from '../assets/images/6.png';
 import image7 from '../assets/images/7.png';
 import image8 from '../assets/images/8.png';
+import mePr from '../assets/images/me_pr.jpg';
+import presenting from '../assets/images/presenting.jpg';
+import presenting1 from '../assets/images/presenting1.jpg';
+import presenting2 from '../assets/images/presenting2.jpg';
+import team1 from '../assets/images/team1.jpg';
 
 interface BlogArticleData {
     id: string;
@@ -20,12 +25,40 @@ interface BlogArticleData {
     tags: string[];
     author: string;
     content: string[];
+    galleryImages?: string[];
 }
 
 const BlogArticle: React.FC = () => {
     const { articleId } = useParams<{ articleId: string }>();
 
     const articles: { [key: string]: BlogArticleData } = {
+        'prishtina-healthcare-hackathon-1st-place': {
+            id: 'prishtina-healthcare-hackathon-1st-place',
+            title: 'We Won 1st Place at the Pristina Healthcare Hackathon!',
+            category: 'Hackathons',
+            date: '2026-04-06',
+            readTime: '3 min read',
+            description: 'Our team took on the IHS Challenge, built a Virtual Reality Exhibition on Non-Communicable Diseases, and won 1st place.',
+            image: mePr,
+            tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching', 'Teamwork'],
+            author: 'Diell Govori',
+            content: [
+                'We won 1st place at the Pristina Healthcare Hackathon!',
+                'Our team took on the IHS Challenge, building a Virtual Reality Exhibition on Non-Communicable Diseases, and came out on top.',
+                'This was my first real pitch experience, and honestly, it was one of the most rewarding things I have done. Stepping in front of judges, presenting something we built from scratch, and actually winning hits different.',
+                'None of this would have happened without my incredible teammates: Ylber Govori, Lorik Jashari, Bardh Hasani, Abdullah Murati. Huge credit to them, the team made the project.',
+                'Check out demo video on YouTube: https://lnkd.in/d6pfDpiD',
+                'Check out the project on GitHub: https://lnkd.in/dVGwS5vh',
+                'Thank you Pristina.Innovate.Healthcare and all organizers for putting together such a great experience. Already looking forward to the next one.'
+            ],
+            galleryImages: [
+                mePr,
+                team1,
+                presenting,
+                presenting1,
+                presenting2
+            ]
+        },
         'first-ctf-experience': {
            id: 'first-ctf-prishtina',
   title: 'My First CTF Experience – Top 10 in Prishtina!',
@@ -332,6 +365,23 @@ const BlogArticle: React.FC = () => {
                                 </div>
                             ))}
                         </div>
+
+                        {article.galleryImages && article.galleryImages.length > 0 && (
+                            <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <h2 className="text-2xl font-bold text-black dark:text-white mb-4">Photo Gallery</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                    {article.galleryImages.map((imageSrc, index) => (
+                                        <img
+                                            key={index}
+                                            src={imageSrc}
+                                            alt={`${article.title} photo ${index + 1}`}
+                                            className="w-full h-48 object-cover rounded-lg border border-gray-200 dark:border-gray-800"
+                                            loading="lazy"
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         {/* Footer */}
                         <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
