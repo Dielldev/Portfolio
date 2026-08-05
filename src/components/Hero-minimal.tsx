@@ -1,5 +1,5 @@
 import React from 'react';
-import pfp from '../assets/images/pfp3.png'
+import pfp from '../assets/images/pfp_main.png'
 
 const HeroMinimal: React.FC = () => {
   return (

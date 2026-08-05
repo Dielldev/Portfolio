@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import starlabsLogo from '../assets/images/starlabs-logo.jpg';
 import upworkLogo from '../assets/images/upwork-logo.webp';
+import stealthLogo from '../assets/images/stealth.jpeg';
+import preteralogo from '../assets/images/image.png';
 
 interface Experience {
     title: string;
@@ -67,6 +69,30 @@ const WorkExperience: React.FC = () => {
     };
 
     const experiences: Experience[] = [
+        {
+            title: "Stealth Startup",
+            company: "Stealth Startup",
+            type: "Building frontier AI",
+            duration: "",
+            location: "",
+            locationType: "",
+            description: "Building frontier AI",
+            skills: [],
+            logo: stealthLogo,
+            linkedinUrl: "https://www.linkedin.com/in/diell-govori-3a32b528b/"
+        },
+        {
+            title: "Cyber Security",
+            company: "Pretera",
+            type: "Internship",
+            duration: "Mar 2026 - May 2026 · 3 mos",
+            location: "District of Pristina, Kosovo",
+            locationType: "On-site",
+            description: "Worked as a Pentester during my cybersecurity internship at Pretera. Conducted hands-on web application penetration testing using Burp Suite and completed numerous advanced labs from the PortSwigger Web Security Academy. Identified, exploited, and documented various security vulnerabilities, and wrote professional pentest reports summarizing findings, risk levels, and remediation recommendations. Gained practical experience in server-side and client-side web attacks including SQL Injection, SSRF, OS Command Injection, SSTI, XXE, Path Traversal, File Upload Vulnerabilities, Access Control Vulnerabilities, Authentication Issues, Business Logic Vulnerabilities, XSS, CSRF, and Web LLM Attacks such as prompt injection and adversarial techniques targeting AI systems.",
+            skills: ["Penetration Testing", "Burp Suite", "SQL Injection", "SSRF", "OS Command Injection", "SSTI", "XXE", "Path Traversal", "File Upload Vulnerabilities", "Access Control", "Authentication", "Business Logic Vulnerabilities", "XSS", "CSRF", "Prompt Injection", "Web LLM Attacks"],
+            logo: preteralogo,
+            linkedinUrl: "https://www.linkedin.com/in/diell-govori-3a32b528b/"
+        },
         {
             title: "Research and Development AI",
             company: "StarLabs",

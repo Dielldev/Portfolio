@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import project1Image from '../assets/images/project1.png';
-import project2Image from '../assets/images/project2.png';
+import cragImage from '../assets/images/crag.png';
 import project4Image from '../assets/images/project4.png';
 import project5Image from '../assets/images/project5.png';
 import project6Image from '../assets/images/project6.png';
+import swipImage from '../assets/images/swip.png';
 
 interface Project {
     company: string;
@@ -58,6 +59,26 @@ const Projects: React.FC = () => {
 
     const projects: Project[] = [
         {
+            company: "Agentic RAG",
+            year: "2025",
+            title: "Corrective RAG Pipeline",
+            description: "Corrective Retrieval-Augmented Generation — a self-healing RAG pipeline that grades its own retrieval, rewrites bad queries, and falls back to web search before generating an answer.",
+            tags: ["Python", "RAG", "LLM", "LangChain"],
+            image: cragImage,
+            liveUrl: "#",
+            githubUrl: "https://github.com/Dielldev/agentic-crag"
+        },
+        {
+            company: "SWIP",
+            year: "2025",
+            title: "Civic Issue Reporter",
+            description: "A React Native + Expo app for reporting civic issues (potholes, broken streetlights, graffiti, flooding, etc.) with AI-powered photo analysis via Groq. Only the prototype vid is shown",
+            tags: ["React Native", "Expo", "Groq", "AI"],
+            image: swipImage,
+            liveUrl: "https://www.youtube.com/watch?v=JL3y514meMA",
+            githubUrl: "https://github.com/Dielldev/swip"
+        },
+        {
             company: "MedAi",
             year: "2025",
             title: "Medical AI Tool For Scanning Reports",
@@ -76,16 +97,6 @@ const Projects: React.FC = () => {
             image: project1Image,
             liveUrl: "https://aortaplus.vercel.app/",
             githubUrl: "https://github.com/Dielldev/Aortaplus"
-        },
-        {
-            company: "Dekor Drilon",
-            year: "2023",
-            title: "Furniture Website",
-            description: "Full-featured Website with minimalistic design",
-            tags: ["HTML", "CSS", "JavaScript"],
-            image: project2Image,
-            liveUrl: "https://dekordrilon.com/",
-            githubUrl: "#"
         },
         {
             company: "Erta Flow",

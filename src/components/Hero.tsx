@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import pfp from '../assets/images/pfp3.png'
+import pfp from '../assets/images/pfp_main.png'
 
 const Hero: React.FC = () => {
   const containerVariants = {
