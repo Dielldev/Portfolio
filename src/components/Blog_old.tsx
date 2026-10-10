@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SectionHeader from './SectionHeader';
 import image2 from '../assets/images/2.png';
 import mePr from '../assets/images/me_pr.jpg';
+import genpactMain from '../assets/images/genpact-main.jpg';
 
 interface BlogPost {
     title: string;
@@ -14,10 +16,11 @@ interface BlogPost {
     image: string;
     link: string;
     tags: string[];
+    rank: string;
 }
 
 const Blog: React.FC = () => {
-    const { ref, isInView } = useScrollAnimation(0.2);
+    const { ref, isInView } = useScrollAnimation(0.05);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -56,6 +59,17 @@ const Blog: React.FC = () => {
 
     const blogPosts: BlogPost[] = [
         {
+            title: 'We Won 1st Place at the Genpact x Agilyti Hackathon',
+            category: 'Hackathons',
+            date: '2026-10-05',
+            readTime: '2 min read',
+            description: 'In 6 hours our team built Mesh, an AI layer that connects teammates and PMs, and won 1st place in the Agentic AI for Business track.',
+            image: genpactMain,
+            link: '/blog/genpact-agilyti-hackathon-1st-place',
+            tags: ['Hackathon', 'AI Agents', 'Genpact', 'Mesh'],
+            rank: '1st place'
+        },
+        {
             title: 'We Won 1st Place at the Pristina Healthcare Hackathon',
             category: 'Hackathons',
             date: '2026-04-06',
@@ -63,7 +77,8 @@ const Blog: React.FC = () => {
             description: 'Our team won 1st place at the Pristina Healthcare Hackathon after building a Virtual Reality Exhibition on Non-Communicable Diseases.',
             image: mePr,
             link: '/blog/prishtina-healthcare-hackathon-1st-place',
-            tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching']
+            tags: ['Hackathon', 'VR', 'Healthcare', 'Pitching'],
+            rank: '1st place'
         },
         {
             title: 'Winning 2nd Place at Europe’s Biggest Hackathon – Junction in Helsinki',
@@ -74,6 +89,7 @@ const Blog: React.FC = () => {
             image: image2,
             link: '/blog/winning-2nd-place-junction',
             tags: ['Hackathon', 'Junction', 'Teamwork', 'Tech Projects'],
+            rank: '2nd place'
         }
     ];
 
@@ -93,42 +109,38 @@ const Blog: React.FC = () => {
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
             >
-                <motion.div 
-                    className="text-center mb-12"
-                    variants={itemVariants}
-                >
-                    <div className="inline-block px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium mb-6">
-                        My Blog
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
-                        Highlights from my journey
-                    </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Insights and experiences from my journey in tech, sharing what I've learned along the way through competitions, hackathons, and projects.
-                    </p>
+                <motion.div variants={itemVariants}>
+                    <SectionHeader
+                        label="Competitions & Awards"
+                        title="Podium finishes"
+                        description="Hackathons and competitions I've placed in, with the story behind each one."
+                    />
                 </motion.div>
 
                 <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto"
                     variants={containerVariants}
                 >
                     {blogPosts.map((post, index) => (
                         <motion.article 
                             key={index} 
-                            className="minimal-card group"
+                            className="minimal-card group text-left !m-0 flex flex-col"
                             variants={cardVariants}
                         >
                             {/* Post Image */}
-                            <div className="mb-2 overflow-hidden rounded-lg">
+                            <div className="relative mb-4 overflow-hidden rounded-lg">
                                 <img
                                     src={post.image}
                                     alt={post.title}
-                                    className="w-full h-28 object-cover transition-all duration-500 group-hover:scale-105"
+                                    className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
+                                <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white text-black text-xs font-semibold shadow">
+                                    {post.rank}
+                                </span>
                             </div>
 
                             {/* Post Info */}
-                            <div className="space-y-2">
+                            <div className="space-y-2 flex flex-col flex-1">
                                 <div className="flex items-center justify-between">
                                     <span className="text-xs font-medium text-gray-600 dark:text-gray-400 transition-colors duration-300">
                                         {post.category}
@@ -142,7 +154,7 @@ const Blog: React.FC = () => {
                                     {post.title}
                                 </h3>
 
-                                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 line-clamp-3">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 line-clamp-3 flex-1">
                                     {post.description}
                                 </p>
 
@@ -167,7 +179,7 @@ const Blog: React.FC = () => {
                                 <div className="pt-2">
                                     <Link
                                         to={post.link}
-                                        className="flex-1 text-center minimal-button text-xs"
+                                        className="block text-center minimal-button text-sm"
                                     >
                                         Read Article
                                     </Link>
@@ -176,6 +188,15 @@ const Blog: React.FC = () => {
                         </motion.article>
                     ))}
                 </motion.div>
+
+                <motion.p
+                    className="max-w-6xl mx-auto mt-6 text-sm text-gray-500 dark:text-gray-400"
+                    variants={itemVariants}
+                >
+                    Also: <span className="text-gray-700 dark:text-gray-300">1st place, ASEF Web Design (2023, 2024)</span>
+                    {' · '}
+                    <span className="text-gray-700 dark:text-gray-300">Bronze, STEM Olympiad Coding (2023)</span>
+                </motion.p>
 
                 <motion.div 
                     className="text-center mt-8"

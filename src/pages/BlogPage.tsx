@@ -10,6 +10,7 @@ import image7 from '../assets/images/7.png';
 import image8 from '../assets/images/8.png';
 import mePr from '../assets/images/me_pr.jpg';
 import mainpic from '../assets/images/main_pic.png';
+import genpactMain from '../assets/images/genpact-main.jpg';
 
 interface BlogPost {
     title: string;
@@ -26,6 +27,16 @@ const BlogPage: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
     const blogPosts: BlogPost[] = [
+        {
+            title: 'We Won 1st Place at the Genpact x Agilyti Hackathon',
+            category: 'Hackathons',
+            date: '2026-10-05',
+            readTime: '2 min read',
+            description: 'In 6 hours our team built Mesh, an AI layer that connects teammates and PMs, and won 1st place in the Agentic AI for Business track.',
+            image: genpactMain,
+            link: '/blog/genpact-agilyti-hackathon-1st-place',
+            tags: ['Hackathon', 'AI Agents', 'Genpact', 'Mesh']
+        },
         {
             title: 'We Won 1st Place at the Pristina Healthcare Hackathon',
             category: 'Hackathons',

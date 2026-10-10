@@ -17,6 +17,12 @@ import mainpic from '../assets/images/main_pic.png';
 import gallery1 from '../assets/images/gallery1.png';
 import gallery2 from '../assets/images/gallery2.png';
 import win from '../assets/images/win.jpg';
+import genpactMain from '../assets/images/genpact-main.jpg';
+import genpact1 from '../assets/images/genpact-1.jpg';
+import genpact2 from '../assets/images/genpact-2.jpg';
+import genpact3 from '../assets/images/genpact-3.jpg';
+import genpact4 from '../assets/images/genpact-4.jpg';
+import genpact5 from '../assets/images/genpact-5.jpg';
 
 interface BlogArticleData {
     id: string;
@@ -37,6 +43,33 @@ const BlogArticle: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const articles: { [key: string]: BlogArticleData } = {
+        'genpact-agilyti-hackathon-1st-place': {
+            id: 'genpact-agilyti-hackathon-1st-place',
+            title: 'We Won 1st Place at the Genpact x Agilyti Hackathon!',
+            category: 'Hackathons',
+            date: '2026-10-05',
+            readTime: '2 min read',
+            description: 'In 6 hours our team built Mesh, an AI layer that connects teammates and PMs, and won 1st place in the Agentic AI for Business track.',
+            image: genpactMain,
+            tags: ['Hackathon', 'AI Agents', 'Genpact', 'Mesh', 'Teamwork'],
+            author: 'Diell Govori',
+            content: [
+                'We won 1st place at the Genpact x Agilyti Hackathon!',
+                'We took the Agentic AI for Business track, and the competition was tough.',
+                'In 6 hours, our team built **Mesh**: an AI layer that connects teammates and PMs. Each person\'s agent posts what they\'re working on to a shared board, so nobody has to ask "what are you building?" in a chat.',
+                'Check out Mesh on GitHub: https://github.com/Dielldev/mesh',
+                'Big thank you to our mentor Anila Hoti for the guidance and support all the way through!',
+                'Thanks to my teammates Ylber Govori, Leard Shabani, Aldi Stublla and Lirik Rexhepi. You made 6 hours look easy.',
+                'Thank you to the judges for the time and sharp questions, and a special thank you to Andre Chapman, Bekim Kasumi, Gentrit Mehmeti and Berat Ujkani, and the whole Genpact and Agilyti team for putting together such a great event!'
+            ],
+            galleryImages: [
+                genpact1,
+                genpact2,
+                genpact3,
+                genpact4,
+                genpact5
+            ]
+        },
         'prishtina-healthcare-hackathon-1st-place': {
             id: 'prishtina-healthcare-hackathon-1st-place',
             title: 'We Won 1st Place at the Pristina Healthcare Hackathon!',
@@ -120,7 +153,7 @@ const BlogArticle: React.FC = () => {
             description: 'My experience at Junction, Europe’s biggest hackathon, where our team built a job-matching application and took home 2nd place.',
             image: image2,
             tags: ['Hackathon', 'Junction', 'Teamwork', 'Tech Projects'],
-            author: 'Jane Smith',
+            author: 'Diell Govori',
              content: [
     'In November 2024, I had the incredible opportunity to participate in **Junction**, the biggest hackathon in Europe, held in Helsinki, Finland. With over a thousand participants from around the world, the energy and intensity of the event were unmatched.',
     'I joined forces with my team — a group of passionate and talented developers — and together we built a **job-matching application** designed to connect candidates and employers in a smarter, more intuitive way. The idea was to use technology to improve how people discover meaningful work opportunities based on skills, personality, and values, not just a CV.',
@@ -324,9 +357,28 @@ const BlogArticle: React.FC = () => {
                 </pre>
             );
         } else {
-            return <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">{content}</p>;
+            return <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">{renderInline(content)}</p>;
         }
     };
+
+    // Renders **bold**, *italic* and bare URLs inside a paragraph
+    const renderInline = (text: string) =>
+        text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|https?:\/\/\S+)/g).map((part, i) => {
+            if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+                return <strong key={i} className="font-semibold text-black dark:text-white">{part.slice(2, -2)}</strong>;
+            }
+            if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+                return <em key={i}>{part.slice(1, -1)}</em>;
+            }
+            if (/^https?:\/\//.test(part)) {
+                return (
+                    <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline break-all hover:text-black dark:hover:text-white">
+                        {part}
+                    </a>
+                );
+            }
+            return part;
+        });
 
     const openImage = (imageSrc: string) => {
         setSelectedImage(imageSrc);

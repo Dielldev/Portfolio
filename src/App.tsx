@@ -27,10 +27,10 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <Hero />
-      <About />
+      <Projects />
       <WorkExperience />
       <Skills />
-      <Projects />
+      <About />
       <Blog />
       <Contact />
       <HorizontalNav />

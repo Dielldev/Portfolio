@@ -1,85 +1,52 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SiClaude } from 'react-icons/si';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SectionHeader from './SectionHeader';
 
 const About: React.FC = () => {
-    const { ref, isInView } = useScrollAnimation(0.3);
+    const { ref, isInView } = useScrollAnimation(0.05);
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-            }
-        }
+        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut"
-            }
-        }
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
     };
 
     return (
         <section className="section-container bg-white dark:bg-black transition-colors duration-300" id="about">
-            <motion.div 
+            <motion.div
                 ref={ref}
                 variants={containerVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
             >
-                <motion.div 
-                    className="text-center mb-12"
-                    variants={itemVariants}
-                >
-                    <div className="inline-block px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium mb-6">
-                        About Me
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
-                        Diell Govori
-                    </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        An AI Engineer who builds and deploys AI models into real-world systems, leverages LLMs to solve complex problems, and designs intelligent agent workflows that automate and scale decision-making
-                    </p>
+                <motion.div variants={itemVariants}>
+                    <SectionHeader label="About" title="Hi, I'm Diell" />
                 </motion.div>
-                
-                <motion.div 
-                    className="space-y-6 max-w-2xl mx-auto"
-                    variants={itemVariants}
-                >
-                    <div className="text-center">
-                       
-                        
-                        <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                           I thrive in competitive and fast paced environments, turning challenging and mind puzzling problems into modern digital solutions through minimalist design principles and clean code architecture
-                        </p>
-                    </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/CV/cv_Diell_Govori.pdf"
-                            download="CV_Diell_Govori.pdf"
-                            className="minimal-button"
-                        >
-                            Download CV
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/diell-govori-3a32b528b/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="minimal-button-outline"
-                        >
-                            LinkedIn
-                        </a>
-                    </div>
+                <motion.p
+                    variants={itemVariants}
+                    className="-mt-4 max-w-xl mx-auto text-lg text-gray-600 dark:text-gray-400 leading-relaxed"
+                >
+                    I'm an AI engineer from Kosovo and a Computer Science and Engineering student at UBT.
+                    I build LLM-powered products, RAG pipelines and agent workflows, and I enter a hackathon
+                    whenever I get the chance.
+                </motion.p>
+
+                <motion.div
+                    variants={itemVariants}
+                    className="mt-10 max-w-xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-6 py-8 md:py-10"
+                >
+                    <SiClaude size={44} color="#D97757" className="mx-auto" aria-label="Claude logo" />
+                    <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-gray-500">Fun fact</p>
+                    <p className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-black dark:text-white leading-snug">
+                        I won't go a day without prompting Claude.
+                    </p>
                 </motion.div>
             </motion.div>
         </section>

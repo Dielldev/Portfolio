@@ -25,7 +25,7 @@ body {
     color: #ffffff;
 }
 
-#home, #projects, #skills, #about, #contact {
+#home, #projects, #experience, #skills, #about, #blog, #contact {
     scroll-margin-top: 80px;
 }
 
@@ -37,14 +37,27 @@ body {
     text-align: center;
 }
 
-/* Contact section - taller padding */
-#contact {
-    margin-bottom: 0; /* Remove extra margin that causes white space */
-    padding-bottom: 6rem; /* Increased padding for more height */
+/* Projects section - wider so featured cards have room */
+#projects.section-container,
+#blog.section-container {
+    max-width: 1200px;
 }
 
-#contact .section-container {
-    padding: 20rem 5rem 14rem 5rem; /* Increased top and bottom padding */
+/* Contact section - leave room for the floating dock */
+#contact {
+    padding-bottom: 8rem;
+}
+
+/* Hero backdrop - faint dot grid that fades out */
+.hero-backdrop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(120, 120, 120, 0.2) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
 }
 
 .section-title {
