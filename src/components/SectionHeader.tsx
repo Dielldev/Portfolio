@@ -4,18 +4,28 @@ interface SectionHeaderProps {
     label: string;
     title: string;
     description?: string;
+    align?: 'left' | 'center';
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ label, title, description }) => (
-    <div className="text-center mb-12">
-        <div className="inline-block px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium mb-6">
-            {label}
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 tracking-tight">
+const SectionHeader: React.FC<SectionHeaderProps> = ({
+    label,
+    title,
+    description,
+    align = 'left',
+}) => (
+    <div className={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
+        <p className={`font-mono text-[13px] lowercase tracking-[0.04em] opacity-60 mb-2 flex items-center ${align === 'center' ? 'justify-center' : ''}`}>
+            <span>{label}</span>
+            <span
+                aria-hidden="true"
+                className="ml-1.5 inline-block h-[0.9em] w-[0.48em] translate-y-[0.05em] animate-blink bg-current motion-reduce:animate-none"
+            />
+        </p>
+        <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-current">
             {title}
         </h2>
         {description && (
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="mt-3 text-[15px] opacity-70 max-w-2xl leading-relaxed font-sans">
                 {description}
             </p>
         )}

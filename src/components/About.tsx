@@ -9,43 +9,63 @@ const About: React.FC = () => {
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
+        visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
     };
 
     return (
-        <section className="section-container bg-white dark:bg-black transition-colors duration-300" id="about">
+        <section
+            id="about"
+            className="w-full max-w-4xl mx-auto px-6 py-24 sm:py-32 scroll-mt-20"
+        >
             <motion.div
                 ref={ref}
                 variants={containerVariants}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? 'visible' : 'hidden'}
             >
-                <motion.div variants={itemVariants}>
-                    <SectionHeader label="About" title="Hi, I'm Diell" />
-                </motion.div>
+                <SectionHeader
+                    label="about"
+                    title="Background & philosophy"
+                />
 
-                <motion.p
-                    variants={itemVariants}
-                    className="-mt-4 max-w-xl mx-auto text-lg text-gray-600 dark:text-gray-400 leading-relaxed"
-                >
-                    I'm an AI engineer from Kosovo and a Computer Science and Engineering student at UBT.
-                    I build LLM-powered products, RAG pipelines and agent workflows, and I enter a hackathon
-                    whenever I get the chance.
-                </motion.p>
+                <div className="space-y-6 max-w-2xl text-[15px] leading-relaxed opacity-80 font-sans">
+                    <motion.p variants={itemVariants}>
+                        I'm an AI engineer based in Kosovo and a Computer Science & Engineering student at UBT.
+                        I specialize in architecting LLM-driven systems: multi-agent task loops, robust RAG pipelines,
+                        and the production software layers required to ship them reliably.
+                    </motion.p>
 
+                    <motion.p variants={itemVariants}>
+                        I have a deep passion for high-velocity building. Whether competing in hackathons across Europe
+                        (winning 1st place at Genpact x Agilyti and JunctionX Tirana, and 2nd at Junction Helsinki)
+                        or engineering Sonte AI, I focus on building tools that give humans leverage.
+                    </motion.p>
+                </div>
+
+                {/* Claude Feature Card */}
                 <motion.div
                     variants={itemVariants}
-                    className="mt-10 max-w-xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-6 py-8 md:py-10"
+                    className="mt-10 max-w-2xl rounded-2xl border border-current/10 bg-current/[0.02] p-6 sm:p-8 transition-all duration-300 hover:border-current/25"
                 >
-                    <SiClaude size={44} color="#D97757" className="mx-auto" aria-label="Claude logo" />
-                    <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-gray-500">Fun fact</p>
-                    <p className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-black dark:text-white leading-snug">
-                        I won't go a day without prompting Claude.
+                    <div className="flex items-center gap-3">
+                        <SiClaude size={32} color="#D97757" aria-label="Claude logo" />
+                        <div>
+                            <p className="font-mono text-[11px] uppercase tracking-widest opacity-50">
+                                workflow note
+                            </p>
+                            <h3 className="text-[17px] font-semibold text-current tracking-tight">
+                                Autonomous coding & agent pair programming
+                            </h3>
+                        </div>
+                    </div>
+                    <p className="mt-4 text-[14px] leading-relaxed opacity-75 font-sans">
+                        I treat AI agents as full collaborators. From drafting architectures and exploring unfamiliar APIs to
+                        writing custom MCP servers and unit tests, I build and operate agent pipelines daily.
                     </p>
                 </motion.div>
             </motion.div>

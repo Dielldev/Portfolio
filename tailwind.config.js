@@ -25,6 +25,7 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
         'slide-in': 'slideIn 0.6s ease-out',
+        'blink': 'blink 1.1s step-end infinite',
       },
       keyframes: {
         fadeIn: {
@@ -34,6 +35,10 @@ export default {
         slideIn: {
           '0%': { opacity: '0', transform: 'translateX(-30px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        blink: {
+          '0%, 49%': { opacity: '1' },
+          '50%, 100%': { opacity: '0' },
         },
       },
       spacing: {

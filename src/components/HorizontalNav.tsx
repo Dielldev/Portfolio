@@ -1,14 +1,12 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   FiHome, 
   FiFolder, 
-  FiGithub, 
-  FiLinkedin, 
-  FiMail, 
+  FiBriefcase,
+  FiImage,
   FiSun, 
-  FiMoon,
-  FiBook,
-  FiBriefcase
+  FiMoon
 } from 'react-icons/fi';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -18,121 +16,66 @@ interface HorizontalNavProps {
 
 const HorizontalNav: React.FC<HorizontalNavProps> = ({ className = '' }) => {
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
 
   const navItems = [
     {
       icon: FiHome,
-      href: '/',
-      label: 'Home',
-      onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' })
+      to: '/',
+      label: 'pond',
     },
     {
       icon: FiFolder,
-      href: '#projects',
-      label: 'Projects',
-      onClick: () => {
-        const projectsSection = document.getElementById('projects');
-        projectsSection?.scrollIntoView({ behavior: 'smooth' });
-      }
+      to: '/projects',
+      label: 'projects',
     },
     {
       icon: FiBriefcase,
-      href: '#experience',
-      label: 'Experience',
-      onClick: () => {
-        document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-      }
+      to: '/experience',
+      label: 'experience',
     },
     {
-      icon: FiBook,
-      href: '#blog',
-      label: 'Awards',
-      onClick: () => {
-        const blogSection = document.getElementById('blog');
-        blogSection?.scrollIntoView({ behavior: 'smooth' });
-      }
+      icon: FiImage,
+      to: '/gallery',
+      label: 'gallery',
     },
-    {
-      icon: FiGithub,
-      href: 'https://github.com/Dielldev',
-      label: 'GitHub',
-      external: true
-    },
-    {
-      icon: FiLinkedin,
-      href: 'https://www.linkedin.com/in/diell-govori-3a32b528b/',
-      label: 'LinkedIn',
-      external: true
-    },
-    {
-      icon: FiMail,
-      href: 'mailto:diellgovori9@gmail.com',
-      label: 'Email',
-      external: true
-    }
   ];
 
   return (
     <nav className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 ${className}`}>
-      <div className="group flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-white/80 dark:bg-black/80 backdrop-blur-lg border border-gray-200 dark:border-gray-700 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl">
-        {/* Vertical line before home */}
-        
-        
+      <div className="flex items-center gap-1 sm:gap-1.5 px-3 py-2 bg-[#f5f4f1]/80 dark:bg-[#1a1921]/80 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-full shadow-2xl transition-all duration-300">
         {navItems.map((item, index) => {
           const Icon = item.icon;
-          
-          // Add vertical line before blog icon (index 3)
-          const beforeBlogLine = index === 3 && (
-            <div key={`line-before-${index}`} className="h-6 w-px bg-gray-300 dark:bg-gray-600 transition-colors duration-300"></div>
-          );
-          
-
-
-          if (item.external) {
-            return (
-              <React.Fragment key={index}>
-                {beforeBlogLine}
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-item p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
-                  title={item.label}
-                >
-                  <Icon size={20} className="transition-transform duration-300 group-hover:rotate-12" />
-                </a>
-              </React.Fragment>
-            );
-          }
-          
+          const isActive = item.to === '/' ? pathname === '/' : pathname.startsWith(item.to);
 
           return (
-            <React.Fragment key={index}>
-              {beforeBlogLine}
-              <button
-                onClick={item.onClick}
-                className="nav-item p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
-                title={item.label}
-              >
-                <Icon size={20} className="transition-transform duration-300 group-hover:rotate-12" />
-              </button>
-            </React.Fragment>
+            <Link
+              key={index}
+              to={item.to}
+              className={`p-2 rounded-full transition-all duration-200 active:scale-95 ${
+                isActive
+                  ? 'text-black dark:text-white bg-black/10 dark:bg-white/15'
+                  : 'text-[#262523]/60 dark:text-[#fff7f0]/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
+              }`}
+              title={item.label}
+              aria-label={item.label}
+            >
+              <Icon size={17} />
+            </Link>
           );
         })}
         
-        {/* Vertical line after mail icon */}
-        <div className="h-6 w-px bg-gray-300 dark:bg-gray-600 transition-colors duration-300"></div>
+        {/* Subtle vertical divider */}
+        <div className="h-4 w-px bg-current opacity-15 mx-0.5"></div>
         
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="nav-item p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+          className="p-2 text-[#262523]/60 dark:text-[#fff7f0]/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200 active:scale-95"
           title="Toggle Theme"
+          aria-label="Toggle Theme"
         >
-          {theme === 'dark' ? 
-            <FiSun size={20} className="transition-transform duration-300 group-hover:rotate-180" /> : 
-            <FiMoon size={20} className="transition-transform duration-300 group-hover:rotate-12" />
-          }
+          {theme === 'dark' ? <FiSun size={17} /> : <FiMoon size={17} />}
         </button>
       </div>
     </nav>
