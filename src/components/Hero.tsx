@@ -213,8 +213,10 @@ const Hero: React.FC = () => {
             </a>
             <span className="opacity-40"> / </span>
             <a
-              href="/CV/cv_Diell_Govori.pdf"
-              download="CV_Diell_Govori.pdf"
+              href="/CV/Diell_Govori_CV_AI_Engineer.pdf"
+              download="Diell_Govori_CV_AI_Engineer.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${UNDERLINE} opacity-60 hover:opacity-100`}
             >
               cv

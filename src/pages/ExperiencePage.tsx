@@ -189,7 +189,8 @@ export default function ExperiencePage() {
             </a>
             <span>/</span>
             <a
-              href="/CV/cv_Diell_Govori.pdf"
+              href="/CV/Diell_Govori_CV_AI_Engineer.pdf"
+              download="Diell_Govori_CV_AI_Engineer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-1 underline-offset-[5px] hover:opacity-100 transition-opacity"

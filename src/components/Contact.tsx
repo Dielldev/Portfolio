@@ -66,8 +66,10 @@ const Contact: React.FC = () => {
                                 <FiMail size={14} /> Send Email
                             </a>
                             <a
-                                href="/CV/cv_Diell_Govori.pdf"
-                                download="CV_Diell_Govori.pdf"
+                                href="/CV/Diell_Govori_CV_AI_Engineer.pdf"
+                                download="Diell_Govori_CV_AI_Engineer.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-mono text-[13px] bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition-opacity"
                             >
                                 <FiDownload size={14} /> CV
